@@ -78,8 +78,14 @@ const getUsersBy = async (query: QueryUsersType, res: Response) => {
 					data: user,
 					deleteFields: ["password", "_id"],
 					newFields: {
-						fullName: ["firstName", "lastName"],
-						id: "_id",
+						fullName: {
+							data: ["firstName", "lastName"],
+							index: 3
+						},
+						id: {
+							data: ["_id"],
+							index: 0
+						},
 					},
 				});
 			});
@@ -112,8 +118,14 @@ const getUserBy = async (query: QueryUserType, res: Response) => {
 				data: user,
 				deleteFields: ["password", "_id"],
 				newFields: {
-					fullName: ["firstName", "lastName"],
-					id: "_id",
+					fullName: {
+						data: ["firstName", "lastName"],
+						index: 3
+					},
+					id: {
+						data: ["_id"],
+						index: 0
+					}
 				},
 			}));
 		}
@@ -189,8 +201,14 @@ export const updateUser = async (req: Request, res: Response) => {
 				data: user,
 				deleteFields: ["password", "_id"],
 				newFields: {
-					fullName: ["firstName", "lastName"],
-					id: "_id",
+					fullName: {
+						data: ["firstName", "lastName"],
+						index: 3
+					},
+					id: {
+						data: ["_id"],
+						index: 0
+					},
 				},
 			})
 		});
@@ -224,8 +242,14 @@ export const getUsers = async (_: any, res: Response) => {
 				data: user,
 				deleteFields: ["password", "_id"],
 				newFields: {
-					fullName: ["firstName", "lastName"],
-					id: "_id",
+					fullName: {
+						data: ["firstName", "lastName"],
+						index: 3
+					},
+					id: {
+						data: ["_id"],
+						index: 0
+					},
 				},
 			});
 		});
