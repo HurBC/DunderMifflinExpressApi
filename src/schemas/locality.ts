@@ -21,5 +21,15 @@ export const addressSchema = z.object({
 	number: z.number().int().positive("Street number is required"),
 	floor: z.number().optional(),
 	department: z.string().optional(),
+	commune: z.string(),
+});
+
+export const addressWithCommuneSchema = z.object({
+	street: z.string({
+		required_error: "Street is required"
+	}),
+	number: z.number().int().positive("Street number is required"),
+	floor: z.number().optional(),
+	department: z.string().optional(),
 	commune: communeSchema,
 });
